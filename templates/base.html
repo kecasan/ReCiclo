@@ -10,11 +10,21 @@
 
     <header>
         <h1><a href="/">Meu E-commerce e Notícias</a></h1>
-        <nav>
-            <a href="{% url 'noticias:lista_noticias' %}">Notícias</a> |
-            <a href="{% url 'loja:lista_produtos' %}">Loja</a>
-        </nav>
-        <hr>
+            <nav>
+                <a href="{% url 'noticias:lista_noticias' %}">Notícias</a> |
+                <a href="{% url 'loja:lista_produtos' %}">Loja</a>
+
+                <span style="float: right;">
+                    {% if user.is_authenticated %}
+                        Olá, {{ user.username }}!
+                        <a href="{% url 'logout' %}">Sair</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Entrar</a> |
+                        <a href="{% url 'contas:cadastro' %}">Cadastrar</a>
+                    {% endif %}
+                </span>
+            </nav>
+            <hr>
     </header>
 
     <main>

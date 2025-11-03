@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'noticias',
     'loja',
+    'contas',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,7 @@ STATICFILES_DIRS = [
 # Configurações de arquivos de mídia (uploads de usuários)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Redirecionamentos de Login/Logout
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
