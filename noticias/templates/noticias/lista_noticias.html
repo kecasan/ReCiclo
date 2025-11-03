@@ -10,7 +10,9 @@
     <hr>
 
     {% for noticia in noticias %}
-        <h2>{{ noticia.titulo }}</h2>
+        <h2>
+            <a href="{% url 'noticias:detalhe_noticia' noticia.pk %}">{{ noticia.titulo }}</a>
+        </h2>
         <p>{{ noticia.conteudo }}</p>
         <p><small>Publicado em: {{ noticia.data_publicacao }}</small></p>
         <hr>
