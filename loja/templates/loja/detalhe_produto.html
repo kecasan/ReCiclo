@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ produto.nome }}{% endblock %}
+
+{% block content %}
+    <h2>{{ produto.nome }}</h2>
+    <hr>
+
+    {% if produto.imagem %}
+        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" style="max-width: 400px; height: auto;">
+    {% endif %}
+
+    <h3>Descrição</h3>
+    <p>{{ produto.descricao|linebreaks }}</p>
+
+    <h3>Preço: R$ {{ produto.preco|floatformat:2 }}</h3>
+    <p>Em estoque: {{ produto.estoque }} unidades</p>
+    
+    <br>
+    <button>Adicionar ao Carrinho (Em breve)</button>
+    <hr>
+
+    <a href="{% url 'loja:lista_produtos' %}">Voltar para a loja</a>
+{% endblock %}

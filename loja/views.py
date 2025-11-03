@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Produto
 
 def lista_produtos(request):
@@ -12,3 +12,12 @@ def lista_produtos(request):
 
     # 3. Renderiza o template com os dados
     return render(request, 'loja/lista_produtos.html', contexto)
+
+def detalhe_produto(request, pk):
+    # Busca o produto pela pk ou retorna um erro 404
+    produto = get_object_or_404(Produto, pk=pk)
+    
+    contexto = {
+        'produto': produto,
+    }
+    return render(request, 'loja/detalhe_produto.html', contexto)

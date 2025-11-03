@@ -10,11 +10,15 @@
         {% for produto in produtos %}
             <div class="product-item">
                 {% if produto.imagem %}
-                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="200">
+                    <a href="{% url 'loja:detalhe_produto' produto.pk %}">
+                        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="200">
+                    </a>
                 {% endif %}
-                <h3>{{ produto.nome }}</h3>
+                <h3>
+                    <a href="{% url 'loja:detalhe_produto' produto.pk %}">{{ produto.nome }}</a>
+                </h3>
                 <p><strong>Preço:</strong> R$ {{ produto.preco|floatformat:2 }}</p>
-                <a href="#">Ver detalhes</a>
+                <a href="{% url 'loja:detalhe_produto' produto.pk %}">Ver detalhes</a>
             </div>
             <hr>
         {% empty %}
