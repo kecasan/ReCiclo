@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Últimas Notícias</title>
+</head>
+<body>
+    <h1>Nosso Mural de Notícias</h1>
+
+    <hr>
+
+    {% for noticia in noticias %}
+        <h2>{{ noticia.titulo }}</h2>
+        <p>{{ noticia.conteudo }}</p>
+        <p><small>Publicado em: {{ noticia.data_publicacao }}</small></p>
+        <hr>
+    {% empty %}
+        <p>Ainda não há notícias cadastradas.</p>
+    {% endfor %}
+
+</body>
+</html>
