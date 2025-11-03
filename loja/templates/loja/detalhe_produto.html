@@ -17,7 +17,10 @@
     <p>Em estoque: {{ produto.estoque }} unidades</p>
     
     <br>
-    <button>Adicionar ao Carrinho (Em breve)</button>
+        <form action="{% url 'carrinho:adicionar_ao_carrinho' produto.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Adicionar ao Carrinho</button>
+        </form>
     <hr>
 
     <a href="{% url 'loja:lista_produtos' %}">Voltar para a loja</a>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Seu Carrinho de Compras{% endblock %}
+
+{% block content %}
+    <h2>Seu Carrinho de Compras</h2>
+    {% if carrinho %}
+        <ul>
+        {% for item_id, item_info in carrinho.items %}
+            <li>
+                {{ item_info.quantidade }}x {{ item_info.nome }} - R$ {{ item_info.preco }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Seu carrinho está vazio.</p>
+    {% endif %}
+    <a href="{% url 'loja:lista_produtos' %}">Continuar comprando</a>
+{% endblock %}

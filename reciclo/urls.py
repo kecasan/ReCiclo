@@ -12,6 +12,7 @@ urlpatterns = [
     path('loja/', include('loja.urls')),
     path('contas/', include('contas.urls')),
     path('contas/', include('django.contrib.auth.urls')),
+    path('carrinho/', include('carrinho.urls')),
 ]
 
 if settings.DEBUG:
