@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Últimas Notícias</title>
-</head>
-<body>
-    <h1>Nosso Mural de Notícias</h1>
+{% extends 'base.html' %}
 
-    <hr>
+{% block title %}Últimas Notícias{% endblock %}
+
+{% block content %}
+    <h2>Nosso Mural de Notícias</h2>
 
     {% for noticia in noticias %}
-        <h2>
+        <h3>
             <a href="{% url 'noticias:detalhe_noticia' noticia.pk %}">{{ noticia.titulo }}</a>
-        </h2>
-        <p>{{ noticia.conteudo }}</p>
-        <p><small>Publicado em: {{ noticia.data_publicacao }}</small></p>
+        </h3>
+        <p><small>Publicado em: {{ noticia.data_publicacao|date:"d/m/Y" }}</small></p>
         <hr>
     {% empty %}
         <p>Ainda não há notícias cadastradas.</p>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}
